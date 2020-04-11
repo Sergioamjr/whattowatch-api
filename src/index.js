@@ -1,19 +1,16 @@
-const { ApolloServer, gql } = require('apollo-server');
+require('./config/database');
+const { ApolloServer } = require('apollo-server');
 const resolvers = require('./resolvers');
+const typeDefs = require('./types');
+const { User } = require('./User');
 
-const typeDefs = gql`
-  type Kittens {
-    name: String
-    color: String
-  }
-
-  type Query {
-    hi: String
-    getKitten(name: String!): Kittens
-  }
-`;
-
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => ({
+    User,
+  }),
+});
 
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url} 🚀`);
