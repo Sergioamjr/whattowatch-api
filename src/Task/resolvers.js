@@ -10,7 +10,17 @@ const GetTaskById = async (_, { _id }, { dataSources }) => {
   }
 };
 
+const SaveTask = async (_, { name, date, title }, { dataSources }) => {
+  const params = {
+    name,
+    date,
+    title,
+  };
+  return await new dataSources.Task(params).save();
+};
+
 module.exports = {
   GetAllTasks,
   GetTaskById,
+  SaveTask,
 };

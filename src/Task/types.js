@@ -28,18 +28,16 @@ const types = gql`
     getTasks: [Task]
     getTaskById(_id: String): Task
   }
+
+  type SaveTask {
+    date: String!
+    name: String!
+    title: String!
+  }
+
+  extend type Mutation {
+    saveTask(date: String!, name: String!, title: String!): Task
+  }
 `;
 
 module.exports = types;
-
-// const taskSchema = joi.object({
-//     name: joi.string().required(),
-//     date: joi.date().required(),
-//     title: joi.string().required(),
-//     description: joi.string().default(''),
-//     period: joi.string().valid('DAILY', 'MONTHLY', 'WEEKLY', 'YEARLY'),
-//     goal: joi.number().default(0),
-//     color: joi.string().default('#333'),
-//     progress: joi.array().items(joi.number()).meta({ index: true }),
-//     notes: joi.array().items(joi.string()).meta({ index: true }),
-//   });
