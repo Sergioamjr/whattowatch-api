@@ -1,4 +1,4 @@
-const { GetUsers, SaveUser, GetUserById } = require('./User/resolvers');
+const { GetUsers, SaveUser, GetUserById, Login } = require('./User/resolvers');
 const { GetAllTasks, GetTaskById, SaveTask } = require('./Task/resolvers');
 const {
   GetAllFavorites,
@@ -14,6 +14,7 @@ const Query = {
   getTaskById: GetTaskById,
   getFavorites: GetAllFavorites,
   getFavoriteById: GetFavoriteById,
+  login: Login,
 };
 
 const Mutation = {
