@@ -1,19 +1,26 @@
 const { GetUsers, SaveUser, GetUserById } = require('./User/resolvers');
 const { GetAllTasks, GetTaskById, SaveTask } = require('./Task/resolvers');
-const { GetAllMovies, SaveMovie } = require('./Movie/resolvers');
+const {
+  GetAllFavorites,
+  SaveFavorite,
+  RemoveFavoriteById,
+  GetFavoriteById,
+} = require('./Favorite/resolvers');
 
 const Query = {
   getUsers: GetUsers,
   getUserById: GetUserById,
   getTasks: GetAllTasks,
   getTaskById: GetTaskById,
-  getMovies: GetAllMovies,
+  getFavorites: GetAllFavorites,
+  getFavoriteById: GetFavoriteById,
 };
 
 const Mutation = {
   saveUser: SaveUser,
   saveTask: SaveTask,
-  saveMovie: SaveMovie,
+  saveFavorite: SaveFavorite,
+  removeFavoriteById: RemoveFavoriteById,
 };
 
 module.exports = {

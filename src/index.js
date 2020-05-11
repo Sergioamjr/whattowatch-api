@@ -4,7 +4,7 @@ const resolvers = require('./resolvers');
 const typeDefs = require('./types');
 const { User } = require('./User');
 const { Task } = require('./Task');
-const { Movie } = require('./Movie');
+const { Favorite } = require('./Favorite');
 
 const server = new ApolloServer({
   typeDefs,
@@ -12,7 +12,7 @@ const server = new ApolloServer({
   dataSources: () => ({
     User,
     Task,
-    Movie,
+    Favorite,
   }),
 });
 

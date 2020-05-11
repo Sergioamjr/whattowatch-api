@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 
 const types = gql`
-  type Movie {
+  type Favorite {
     _id: ID
     userID: String
     movieID: Int
@@ -15,12 +15,13 @@ const types = gql`
   }
 
   extend type Query {
-    getMovies: [Movie]
-    getMovieById(_id: String): Movie
+    getFavorites: [Favorite]
+    getFavoriteById(_id: ID): Favorite
   }
 
   extend type Mutation {
-    saveMovie(
+    removeFavoriteById(_id: ID): Favorite
+    saveFavorite(
       userID: String
       movieID: Int
       overview: String
@@ -30,7 +31,7 @@ const types = gql`
       backdropPath: String
       release: String
       genres: [Int]
-    ): Movie
+    ): Favorite
   }
 `;
 

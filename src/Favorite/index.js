@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const joigoose = require('joigoose')(mongoose);
 const joi = require('@hapi/joi');
 
-const movieSchema = joi.object({
+const favoriteSchema = joi.object({
   userID: joi.string().required(),
   movieID: joi.string().required(),
   overview: joi.string().required(),
@@ -14,11 +14,11 @@ const movieSchema = joi.object({
   genre: joi.array().items(joi.number()),
 });
 
-const mongooseSchema = new mongoose.Schema(joigoose.convert(movieSchema));
+const mongooseSchema = new mongoose.Schema(joigoose.convert(favoriteSchema));
 
-const Movie = mongoose.model('Movie', mongooseSchema);
+const Favorite = mongoose.model('Favorite', mongooseSchema);
 
 module.exports = {
-  Movie,
-  movieSchema,
+  Favorite,
+  favoriteSchema,
 };
