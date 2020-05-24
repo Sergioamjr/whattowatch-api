@@ -1,30 +1,30 @@
 const {
-  GetUsers,
-  SaveUser,
-  GetUserById,
-  Login,
-  ValidateToken,
+  getUsers,
+  saveUser,
+  getUserById,
+  login,
+  validateToken,
 } = require('./User/resolvers');
 const {
-  GetAllFavorites,
-  SaveFavorite,
-  RemoveFavoriteById,
-  GetFavoriteById,
+  getFavoritesByUserID,
+  saveFavorite,
+  removeFavoriteById,
+  getFavoriteById,
 } = require('./Favorite/resolvers');
 
 const Query = {
-  getUsers: GetUsers,
-  getUserById: GetUserById,
-  getFavorites: GetAllFavorites,
-  getFavoriteById: GetFavoriteById,
-  login: Login,
-  validateToken: ValidateToken,
+  getUsers,
+  getUserById,
+  getFavoritesByUserID,
+  getFavoriteById,
+  login,
+  validateToken,
 };
 
 const Mutation = {
-  saveUser: SaveUser,
-  saveFavorite: SaveFavorite,
-  removeFavoriteById: RemoveFavoriteById,
+  saveUser,
+  saveFavorite,
+  removeFavoriteById,
 };
 
 module.exports = {

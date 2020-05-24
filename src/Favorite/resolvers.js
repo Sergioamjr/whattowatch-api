@@ -1,5 +1,5 @@
-const GetAllFavorites = async (_, __, { dataSources }) => {
-  return await dataSources.Favorite.find();
+const GetFavoritesByUserID = async (_, { userID }, { dataSources }) => {
+  return await dataSources.Favorite.find({ userID });
 };
 
 const GetFavoriteById = async (_, { _id }, { dataSources }) => {
@@ -44,8 +44,8 @@ const RemoveFavoriteById = async (_, { _id }, { dataSources }) => {
 };
 
 module.exports = {
-  GetAllFavorites,
-  SaveFavorite,
-  RemoveFavoriteById,
-  GetFavoriteById,
+  getFavoritesByUserID: GetFavoritesByUserID,
+  saveFavorite: SaveFavorite,
+  removeFavoriteById: RemoveFavoriteById,
+  getFavoriteById: GetFavoriteById,
 };

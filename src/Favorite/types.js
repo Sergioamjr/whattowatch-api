@@ -15,7 +15,7 @@ const types = gql`
   }
 
   extend type Query {
-    getFavorites: [Favorite]
+    getFavoritesByUserID(userID: String): [Favorite]
     getFavoriteById(_id: ID): Favorite
   }
 
