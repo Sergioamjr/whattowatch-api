@@ -44,8 +44,12 @@ const RemoveFavoriteById = async (_, { _id }, { dataSources }) => {
 };
 
 module.exports = {
-  getFavoritesByUserID: GetFavoritesByUserID,
-  saveFavorite: SaveFavorite,
-  removeFavoriteById: RemoveFavoriteById,
-  getFavoriteById: GetFavoriteById,
+  favoriteQueries: {
+    getFavoriteById: GetFavoriteById,
+    getFavoritesByUserID: GetFavoritesByUserID,
+  },
+  favoritesMutations: {
+    removeFavoriteById: RemoveFavoriteById,
+    saveFavorite: SaveFavorite,
+  },
 };

@@ -1,30 +1,14 @@
-const {
-  getUsers,
-  saveUser,
-  getUserById,
-  login,
-  validateToken,
-} = require('./User/resolvers');
-const {
-  getFavoritesByUserID,
-  saveFavorite,
-  removeFavoriteById,
-  getFavoriteById,
-} = require('./Favorite/resolvers');
+const { userQueries, userMutations } = require('./User/resolvers');
+const { favoriteQueries, favoritesMutations } = require('./Favorite/resolvers');
 
 const Query = {
-  getUsers,
-  getUserById,
-  getFavoritesByUserID,
-  getFavoriteById,
-  login,
-  validateToken,
+  ...userQueries,
+  ...favoriteQueries,
 };
 
 const Mutation = {
-  saveUser,
-  saveFavorite,
-  removeFavoriteById,
+  ...userMutations,
+  ...favoritesMutations,
 };
 
 module.exports = {

@@ -47,9 +47,13 @@ const ValidateToken = (_, { token }) => {
 };
 
 module.exports = {
-  getUsers: GetUsers,
-  saveUser: SaveUser,
-  getUserById: GetUserById,
-  login: Login,
-  validateToken: ValidateToken,
+  userQueries: {
+    getUsers: GetUsers,
+    getUserById: GetUserById,
+    validateToken: ValidateToken,
+    login: Login,
+  },
+  userMutations: {
+    saveUser: SaveUser,
+  },
 };
