@@ -37,9 +37,19 @@ const Login = async (_, { email, password }, { dataSources }) => {
   }
 };
 
+const ValidateToken = (_, { token }) => {
+  try {
+    jwt.verify(token, secret);
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
 module.exports = {
   GetUsers,
   SaveUser,
   GetUserById,
   Login,
+  ValidateToken,
 };

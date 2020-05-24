@@ -20,6 +20,7 @@ const types = gql`
     getUsers: [User]
     getUserById(_id: String): User
     login(email: String, password: String): LoggedUser
+    validateToken(token: String): Boolean
   }
 
   extend type Mutation {
