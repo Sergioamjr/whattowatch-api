@@ -37,6 +37,11 @@ const Login = async (_, { email, password }, { dataSources }) => {
   }
 };
 
+const SaveUserAndSignIn = async (_, params, source) => {
+  await SaveUser(_, params, source);
+  return await Login(_, params, source);
+};
+
 const ValidateToken = (_, { token }) => {
   try {
     jwt.verify(token, secret);
@@ -51,9 +56,10 @@ module.exports = {
     getUsers: GetUsers,
     getUserById: GetUserById,
     validateToken: ValidateToken,
-    login: Login,
   },
   userMutations: {
+    login: Login,
     saveUser: SaveUser,
+    saveUserAndSignIn: SaveUserAndSignIn,
   },
 };

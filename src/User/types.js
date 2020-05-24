@@ -19,12 +19,17 @@ const types = gql`
   extend type Query {
     getUsers: [User]
     getUserById(_id: String): User
-    login(email: String, password: String): LoggedUser
     validateToken(token: String): Boolean
   }
 
   extend type Mutation {
+    login(email: String, password: String): LoggedUser
     saveUser(name: String!, email: String!, password: String!): User
+    saveUserAndSignIn(
+      name: String!
+      email: String!
+      password: String!
+    ): LoggedUser
   }
 `;
 
