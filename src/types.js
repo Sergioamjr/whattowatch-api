@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server');
 const userTypes = require('./User/types');
-const taskTypes = require('./Task/types');
 const favoriteTypes = require('./Favorite/types');
 
 const root = gql`
@@ -13,4 +12,4 @@ const root = gql`
   }
 `;
 
-module.exports = [root, userTypes, taskTypes, favoriteTypes];
+module.exports = [root, userTypes, favoriteTypes];

@@ -5,7 +5,6 @@ const {
   Login,
   ValidateToken,
 } = require('./User/resolvers');
-const { GetAllTasks, GetTaskById, SaveTask } = require('./Task/resolvers');
 const {
   GetAllFavorites,
   SaveFavorite,
@@ -16,8 +15,6 @@ const {
 const Query = {
   getUsers: GetUsers,
   getUserById: GetUserById,
-  getTasks: GetAllTasks,
-  getTaskById: GetTaskById,
   getFavorites: GetAllFavorites,
   getFavoriteById: GetFavoriteById,
   login: Login,
@@ -26,7 +23,6 @@ const Query = {
 
 const Mutation = {
   saveUser: SaveUser,
-  saveTask: SaveTask,
   saveFavorite: SaveFavorite,
   removeFavoriteById: RemoveFavoriteById,
 };
