@@ -8,6 +8,8 @@ const { Favorite } = require('./Favorite');
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
+  playground: true,
   dataSources: () => ({
     User,
     Favorite,
