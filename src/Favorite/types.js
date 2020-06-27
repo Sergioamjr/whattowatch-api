@@ -5,13 +5,8 @@ const types = gql`
     _id: ID
     userID: String
     movieID: Int
-    overview: String
-    popularity: Float
     title: String
     posterPath: String
-    backdropPath: String
-    release: String
-    genres: [Int]
   }
 
   extend type Query {
@@ -24,13 +19,8 @@ const types = gql`
     saveFavorite(
       userID: String
       movieID: Int
-      overview: String
-      popularity: Float
       title: String
       posterPath: String
-      backdropPath: String
-      release: String
-      genres: [Int]
     ): Favorite
   }
 `;

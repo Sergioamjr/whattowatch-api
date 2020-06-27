@@ -12,29 +12,14 @@ const GetFavoriteById = async (_, { _id }, { dataSources }) => {
 
 const SaveFavorite = async (
   _,
-  {
-    userID,
-    movieID,
-    overview,
-    popularity,
-    title,
-    posterPath,
-    backdropPath,
-    release,
-    genres,
-  },
+  { userID, movieID, title, posterPath },
   { dataSources },
 ) => {
   const params = {
     userID,
     movieID,
-    overview,
-    popularity,
     title,
     posterPath,
-    backdropPath,
-    release,
-    genres,
   };
   return await new dataSources.Favorite(params).save();
 };

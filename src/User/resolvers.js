@@ -15,6 +15,10 @@ const GetUserById = async (_, { _id }, { dataSources }) => {
 };
 
 const SaveUser = async (_, { name, email, password }, { dataSources }) => {
+  const isRegistered = await dataSources.User.findOne({ email });
+  if (isRegistered) {
+    throw Error('Usuário já cadastrado. Tente recuperar sua senha.');
+  }
   const hash = bcrypt.hashSync(password, 10);
   return await new dataSources.User({
     name,
@@ -31,9 +35,9 @@ const Login = async (_, { email, password }, { dataSources }) => {
     if (match) {
       return user;
     }
-    return null;
+    throw Error('E-mail ou senha incorretos.');
   } catch (err) {
-    return null;
+    throw Error('E-mail ou senha incorretos.');
   }
 };
 
