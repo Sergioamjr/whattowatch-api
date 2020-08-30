@@ -1,9 +1,15 @@
 require('./config/database');
-const { ApolloServer } = require('apollo-server');
+const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
+const expressPlayground = require('graphql-playground-middleware-express')
+  .default;
 const resolvers = require('./resolvers');
 const typeDefs = require('./types');
 const { User } = require('./User');
 const { Favorite } = require('./Favorite');
+const port = process.env.PORT || 4000;
+
+const app = express();
 
 const server = new ApolloServer({
   typeDefs,
@@ -16,6 +22,10 @@ const server = new ApolloServer({
   }),
 });
 
-server.listen().then(({ url }) => {
-  console.log(`Server ready at ${url} 🚀`);
+server.applyMiddleware({ app });
+
+app.listen({ port }, () => {
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 });
+
+app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
