@@ -24,8 +24,8 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.listen({ port }, () => {
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-});
-
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
+
+app.listen({ port }, () => {
+  console.log(`🚀 Server ready ${server}`);
+});
