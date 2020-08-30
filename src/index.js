@@ -31,5 +31,5 @@ app.get('/starter', (req, res) => {
 });
 
 app.listen({ port }, () => {
-  console.log(`🚀 Server ready ${JSON.stringify(server, null, 2)}`);
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 });
