@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
-const localDB = 'mongodb://localhost/staysanedb-graphql';
+const localDB = 'mongodb://localhost/whattowatch-db';
 
-const url =
-  'mongodb://heroku_gcq1q03h:mg1opbf4if2hoddfeqs5eabh1h@ds231549.mlab.com:31549/heroku_gcq1q03h' ||
-  localDB;
+const url = process.env.MONGODB_URI || localDB;
 
 module.exports = mongoose.connect(url, {
   useNewUrlParser: true,
