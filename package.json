@@ -6,8 +6,7 @@
   "scripts": {
     "format": "prettier-standard --format",
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
-    "heroku-postbuild": "yarn start"
+    "dev": "nodemon ./src/index.js"
   },
   "keywords": [],
   "author": "",
