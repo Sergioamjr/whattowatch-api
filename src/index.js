@@ -26,6 +26,10 @@ server.applyMiddleware({ app });
 
 app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
 
+app.get('/starter', (req, res) => {
+  res.send('Hello World!');
+});
+
 app.listen({ port }, () => {
-  console.log(`🚀 Server ready ${server}`);
+  console.log(`🚀 Server ready ${JSON.stringify(server, null, 2)}`);
 });
